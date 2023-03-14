@@ -13,8 +13,13 @@ struct ContentView: View {
     var body: some View {
             VStack {
                 Image(systemName: "location.north")
-                Text(state.artistsByLocation)
-                    .padding()
+                List {
+                    if state.artistsByLocation.count > 3 {
+                        Text(state.artistsByLocation[0])
+                        Text(state.artistsByLocation[1])
+                        Text(state.artistsByLocation[2])
+                    }
+                }
                 Button("Find Music ", action: {
                     state.findMusic()
                 })
